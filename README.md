@@ -55,7 +55,7 @@ sklearn (0.19.2+)
 
 ## Installation
 ```
-pip install git+https://github.com/uef-bbc/nippy
+pip install git+https://github.com/thanhtung09t2/nippy
 ```
 
 ## Repository content
