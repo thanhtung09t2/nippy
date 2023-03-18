@@ -596,6 +596,18 @@ def run_pipeline(wavelength_, spectra_, pipeline):
         if 'BASELINE' in pipeline.keys() and pipeline['BASELINE'] != None:
             spectra_ = baseline(spectra_, **pipeline['BASELINE'])
 
+        if 'SAVGOL' in pipeline.keys() and pipeline['SAVGOL'] != None:
+            spectra_ = savgol(spectra_, **pipeline['SAVGOL'])
+
+        if 'SMOOTH' in pipeline.keys() and pipeline['SMOOTH'] != None:
+            spectra_ = smooth(spectra_, **pipeline['SMOOTH'])
+
+        if 'DERIVATE' in pipeline.keys() and pipeline['DERIVATE'] != None:
+            spectra_ = derivate(spectra_, **pipeline['DERIVATE'])
+
+        if 'DETREND' in pipeline.keys() and pipeline['DETREND'] != None:
+            spectra_ = detrend(spectra_, **pipeline['DETREND'])
+            
         if 'SNV' in pipeline.keys() and pipeline['SNV'] != None:
             spectra_ = snv(spectra_, **pipeline['SNV'])
 
@@ -613,18 +625,6 @@ def run_pipeline(wavelength_, spectra_, pipeline):
 
         if 'NORML' in pipeline.keys() and pipeline['NORML'] != None:
             spectra_ = norml(spectra_, **pipeline['NORML'])
-
-        if 'SAVGOL' in pipeline.keys() and pipeline['SAVGOL'] != None:
-            spectra_ = savgol(spectra_, **pipeline['SAVGOL'])
-
-        if 'SMOOTH' in pipeline.keys() and pipeline['SMOOTH'] != None:
-            spectra_ = smooth(spectra_, **pipeline['SMOOTH'])
-
-        if 'DERIVATE' in pipeline.keys() and pipeline['DERIVATE'] != None:
-            spectra_ = derivate(spectra_, **pipeline['DERIVATE'])
-
-        if 'DETREND' in pipeline.keys() and pipeline['DETREND'] != None:
-            spectra_ = detrend(spectra_, **pipeline['DETREND'])
 
         if 'RESAMPLE' in pipeline.keys() and pipeline['RESAMPLE'] != None:
             wavelength_, spectra_ = resample(wavelength_, spectra_, **pipeline['RESAMPLE'])
